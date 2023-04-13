@@ -73,7 +73,7 @@ export default function Unit(info: UnitInfo) {
          <h1 className="text-4xl md:text-5xl mt-10">{info.name}</h1>
          <div className="mt-5 mb-10">
             <div className="text-2xl text-neutral-700">Harga mulai dari</div>
-            <div className="text-5xl md:text-7xl mb-4 font-thin">
+            <div className="text-5xl md:text-6xl lg:text-7xl mb-4 font-thin">
                {info.price}
             </div>
          </div>
