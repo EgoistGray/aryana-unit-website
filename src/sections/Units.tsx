@@ -5,17 +5,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import Unit from "@/templates/unit";
 import FamiliaImages from "@/images/famillia";
 import IdolaImages from "@/images/idola";
 import NusaImages from "@/images/nusa";
-import SuryaImages from "@/images/surya";
 import PrimaImages from "@/images/prima";
+import SuryaImages from "@/images/surya";
+import Unit from "@/templates/Unit";
 
 export default function Units() {
    return (
       <Section className="">
-         <h1 className="text-center md:text-left text-4xl mb-10 font-semibold">
+         <h1 className="mb-10 text-4xl font-semibold text-center md:text-left">
             Units
          </h1>
          <Unit
