@@ -76,7 +76,7 @@ export default function Unit(info: UnitInfo) {
             modules={[Navigation, Pagination, Autoplay, Zoom]}
             pagination={{ clickable: true }}
             zoom={{ toggle: true, maxRatio: 3 }}
-            autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 5000 }}
             navigation
          >
             {info.images.map((image, index) => (
