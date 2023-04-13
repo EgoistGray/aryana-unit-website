@@ -1,9 +1,9 @@
+import { Variants, motion } from "framer-motion";
 import { Autoplay, Navigation, Pagination, Zoom } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Variants, motion } from "framer-motion";
 
 import { LinkButton } from "@/components/Buttons";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 
 import "swiper/css";
@@ -11,38 +11,39 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/zoom";
 
+import BlurImage from "@/components/BlurImage";
 import { metersquared } from "@/utils/decor";
 
 const ParentVariants: Variants = {
    hidden: {},
    show: {
       transition: {
-         staggerChildren: 0.1
-      }
-   }
+         staggerChildren: 0.1,
+      },
+   },
 };
 const UnitVariants: Variants = {
    hidden: {
       opacity: 0,
-      y: 10
+      y: 10,
    },
    show: {
       opacity: 1,
-      y: 0
-   }
+      y: 0,
+   },
 };
 
 function UnitInfo({
    title,
-   content
+   content,
 }: {
    title: React.ReactNode;
    content: React.ReactNode;
 }) {
    return (
       <motion.div>
-         <div className="md:hidden h-px w-full bg-neutral-300 rounded-full my-4"></div>
-         <div className="text-xl mb-2 font-bold text-neutral-800">{title}</div>
+         <div className="w-full h-px my-4 rounded-full md:hidden bg-neutral-300"></div>
+         <div className="mb-2 text-xl font-bold text-neutral-800">{title}</div>
          <motion.div variants={UnitVariants} className="text-5xl font-light">
             {content}
          </motion.div>
@@ -75,16 +76,16 @@ export default function Unit(info: UnitInfo) {
             modules={[Navigation, Pagination, Autoplay, Zoom]}
             pagination={{ clickable: true }}
             zoom={{ toggle: true, maxRatio: 3 }}
-            autoplay
+            // autoplay
             navigation
          >
             {info.images.map((image, index) => (
-               <SwiperSlide key={index} zoom>
-                  <div className="w-full h-full relative aspect-video">
-                     <Image
+               <SwiperSlide key={`${image.src}${index}`} zoom>
+                  <div className="relative w-full h-full aspect-video">
+                     <BlurImage
                         src={image}
                         alt="Loading Image"
-                        className="object-contain duration-200 ease-in-out transition-all"
+                        className="object-contain transition-all duration-200 ease-in-out"
                         placeholder="blur"
                         fill
                      />
@@ -92,10 +93,10 @@ export default function Unit(info: UnitInfo) {
                </SwiperSlide>
             ))}
          </Swiper>
-         <h1 className="text-4xl md:text-5xl mt-10">{info.name}</h1>
+         <h1 className="mt-10 text-4xl md:text-5xl">{info.name}</h1>
          <div className="mt-5 mb-10">
             <div className="text-2xl text-neutral-700">Harga mulai dari</div>
-            <div className="text-5xl md:text-6xl lg:text-7xl mb-4 font-thin">
+            <div className="mb-4 text-5xl font-thin md:text-6xl lg:text-7xl">
                {info.price}
             </div>
          </div>
@@ -104,7 +105,7 @@ export default function Unit(info: UnitInfo) {
             initial={"hidden"}
             whileInView={"show"}
             viewport={{ margin: "20% 0px -20% 0px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-y-10 place-content-center mx-auto"
+            className="grid grid-cols-1 gap-5 mx-auto md:grid-cols-3 md:gap-y-10 place-content-center"
          >
             <UnitInfo
                title="Luas Tanah"
@@ -120,7 +121,7 @@ export default function Unit(info: UnitInfo) {
 
          <LinkButton
             href={`https://wa.me/6282122771000?text=${info.whatsappMessage}`}
-            className="my-10 text-3xl font-thin relative hover:scale-110 origin-left duration-150 hover:text-neutral-500"
+            className="relative my-10 text-3xl font-thin duration-150 origin-left hover:scale-110 hover:text-neutral-500"
          >
             Janji Survey <AiOutlineDoubleRight className="text-neutral-400" />
          </LinkButton>
