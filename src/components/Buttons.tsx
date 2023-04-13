@@ -9,7 +9,7 @@ export default function Button({
    return (
       <button
          {...props}
-         className={`flex items-center justify-center gap-2 py-4 px-10 font-semibold text-md rounded-full ease-in-out duration-150 
+         className={`flex items-center justify-center gap-2 py-4 px-10 font-semibold text-md rounded-full ease-in-out duration-150 select-none
          ${className}`}
       >
          {children}
@@ -25,7 +25,7 @@ export function LinkButton({
    return (
       <Link
          {...props}
-         className={`flex py-4 w-fit items-center justify-center gap-2  ease-in-out duration-150 
+         className={`flex py-4 w-fit items-center justify-center gap-2  ease-in-out duration-150 select-none
          ${className}`}
       >
          {children}
