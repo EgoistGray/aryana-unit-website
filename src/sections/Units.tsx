@@ -10,13 +10,14 @@ import FamiliaImages from "@/images/famillia";
 import IdolaImages from "@/images/idola";
 import NusaImages from "@/images/nusa";
 import SuryaImages from "@/images/surya";
-import Prima73Images from "@/images/prima78";
 import PrimaImages from "@/images/prima";
 
 export default function Units() {
    return (
       <Section className="">
-         <h1 className="text-4xl mb-10 font-semibold">Units</h1>
+         <h1 className="text-center md:text-left text-4xl mb-10 font-semibold">
+            Units
+         </h1>
          <Unit
             name="Cluster Megah: Tipe Familia"
             images={FamiliaImages}
