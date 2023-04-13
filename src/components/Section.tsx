@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ComponentProps } from "react";
 
 export default function Section({
@@ -11,3 +12,6 @@ export default function Section({
       </section>
    );
 }
+
+const MotionSection = motion(Section);
+export { MotionSection };
