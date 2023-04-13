@@ -27,7 +27,7 @@ export default function useScrollElement(ref: RefObject<HTMLElement>) {
       return () => {
          document.removeEventListener("scroll", computeProgress);
       };
-   }, [scrollProgress, ref, computeProgress]);
+   }, [computeProgress]);
 
    return scrollProgress;
 }
