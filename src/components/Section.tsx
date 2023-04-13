@@ -6,11 +6,8 @@ export default function Section({
    ...props
 }: ComponentProps<"section">) {
    return (
-      <section
-         {...props}
-         className={`w-full p-12 py-24 mx-auto max-w-7xl ${className}`}
-      >
-         {children}
+      <section {...props} className={`w-full p-12 py-24 bg-white ${className}`}>
+         <div className="mx-auto max-w-7xl">{children}</div>
       </section>
    );
 }
