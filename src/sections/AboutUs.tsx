@@ -12,7 +12,8 @@ export default function AboutUs() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{
-               margin: "0px 0px -30% 0px"
+               margin: "0px 0px -30% 0px",
+               once: true
             }}
          >
             PT. Purinusa Jayakusuma telah membangun lebih dari 1000 rumah
@@ -23,7 +24,8 @@ export default function AboutUs() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{
-               margin: "0px 0px -30% 0px"
+               margin: "0px 0px -30% 0px",
+               once: true
             }}
          >
             Kami menawarkan 12 komunitas perumahan yang unik, terletak di tiga
