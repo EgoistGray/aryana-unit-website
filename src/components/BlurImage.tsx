@@ -10,7 +10,7 @@ export default function BlurImage({
       <Image
          onLoadingComplete={() => setLoaded(true)}
          placeholder="blur"
-         className={`duration-1000 transition ${
+         className={`transition duration-1000 ease-in-out ${
             isLoaded ? "blur-0 scale-100" : "blur-3xl scale-110"
          } ${className}`}
          {...props}

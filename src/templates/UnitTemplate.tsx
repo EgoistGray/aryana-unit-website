@@ -85,7 +85,7 @@ export default function Unit(info: UnitInfo) {
                      <BlurImage
                         src={image}
                         alt="Loading Image"
-                        className="object-contain"
+                        className="object-contain transition-all duration-200 ease-in-out"
                         placeholder="blur"
                         fill
                      />
