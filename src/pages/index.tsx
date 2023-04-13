@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
    return (
-      <main className="pointer-events-none">
+      <main>
          <NextSeo
             title="Aryana Residence | Yenyen Studio"
             description="Live vibrantly, live modernly. All you need is in here"
