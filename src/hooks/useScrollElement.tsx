@@ -20,14 +20,14 @@ export default function useScrollElement(ref: RefObject<HTMLElement>) {
 
       const progress = clip01((window.scrollY - from) / distance);
       scrollProgress.set(progress);
-   }, [ref]);
+   }, [scrollProgress, ref]);
 
    useEffect(() => {
       document.addEventListener("scroll", computeProgress);
       return () => {
          document.removeEventListener("scroll", computeProgress);
       };
-   }, [ref]);
+   }, [scrollProgress, ref, computeProgress]);
 
    return scrollProgress;
 }
