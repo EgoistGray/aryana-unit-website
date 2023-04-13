@@ -1,5 +1,6 @@
-import { Autoplay, EffectCreative, Navigation, Pagination, Zoom } from "swiper";
+import { Autoplay, Navigation, Pagination, Zoom } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Variants, motion } from "framer-motion";
 
 import { LinkButton } from "@/components/Buttons";
 import Image, { StaticImageData } from "next/image";
@@ -12,6 +13,25 @@ import "swiper/css/zoom";
 
 import { metersquared } from "@/utils/decor";
 
+const ParentVariants: Variants = {
+   hidden: {},
+   show: {
+      transition: {
+         staggerChildren: 0.1
+      }
+   }
+};
+const UnitVariants: Variants = {
+   hidden: {
+      opacity: 0,
+      y: 10
+   },
+   show: {
+      opacity: 1,
+      y: 0
+   }
+};
+
 function UnitInfo({
    title,
    content
@@ -20,11 +40,13 @@ function UnitInfo({
    content: React.ReactNode;
 }) {
    return (
-      <div>
+      <motion.div>
          <div className="md:hidden h-px w-full bg-neutral-300 rounded-full my-4"></div>
          <div className="text-xl mb-2 font-bold text-neutral-800">{title}</div>
-         <div className="text-5xl font-light">{content}</div>
-      </div>
+         <motion.div variants={UnitVariants} className="text-5xl font-light">
+            {content}
+         </motion.div>
+      </motion.div>
    );
 }
 
@@ -77,7 +99,13 @@ export default function Unit(info: UnitInfo) {
                {info.price}
             </div>
          </div>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-y-10 place-content-center mx-auto">
+         <motion.div
+            variants={ParentVariants}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{ margin: "20% 0px -20% 0px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-y-10 place-content-center mx-auto"
+         >
             <UnitInfo
                title="Luas Tanah"
                content={metersquared(info.groundArea)}
@@ -88,7 +116,7 @@ export default function Unit(info: UnitInfo) {
             />
             <UnitInfo title="Kamar Mandi" content={`${info.bathroom} unit`} />
             <UnitInfo title="Kamar Tidur" content={`${info.bedroom} unit`} />
-         </div>
+         </motion.div>
 
          <LinkButton
             href={`https://wa.me/6282122771000?text=${info.whatsappMessage}`}
